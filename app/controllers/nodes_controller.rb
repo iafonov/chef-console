@@ -1,5 +1,7 @@
 class NodesController < ApplicationController
+  respond_to :json
+
   def index
-    render :text => Node.all
+    respond_with(Node.all)
   end
 end

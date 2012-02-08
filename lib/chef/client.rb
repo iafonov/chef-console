@@ -10,7 +10,8 @@ class Chef::Client
   def get(resource, id = "", params = {})
     request_path = "/#{resource}/#{id}"
 
-    RestClient.get "#{@url}#{request_path}", sign_headers(:get, :path => request_path)
+    result = RestClient.get "#{@url}#{request_path}", sign_headers(:get, :path => request_path)
+    JSON.parse(result)
   end
 
 private

@@ -1,0 +1,4 @@
+{
+  "shard1":"http://example.com:4000/nodes/shard1",
+  "shard2":"http://example.com:4000/nodes/shard2"
+}
