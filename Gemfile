@@ -5,7 +5,13 @@ gem 'json'
 gem 'jquery-rails'
 gem 'unicorn'
 gem 'ruby-debug'
+gem 'rest-client'
+gem 'mixlib-authentication'
+
+group :test do
+  gem 'webmock', '~> 1.7.10'
+end
 
 group :test, :development do
-  gem "rspec-rails", "~> 2.6"
+  gem 'rspec-rails', '~> 2.6'
 end
