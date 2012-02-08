@@ -1,9 +1,24 @@
 class ChefResource
   def self.all
-    client.get(self.name.pluralize.downcase)
+    collection = []
+
+    client.get(resouce_class.name.downcase.pluralize).each do |resouce_name, resouce_url|
+      collection << resouce_class.new(resouce_name, resouce_url)
+    end
+
+    collection
+  end
+
+  def initialize(name, url)
+    @name       = name
+    @fetch_url  = url
   end
 
 private
+
+  def self.resouce_class
+    self
+  end
 
   def self.client
     @@client ||= Chef::Client.new({
