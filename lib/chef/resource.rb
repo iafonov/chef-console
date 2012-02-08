@@ -1,4 +1,4 @@
-class ChefResource
+class Chef::Resource
   def self.all
     collection = []
 
