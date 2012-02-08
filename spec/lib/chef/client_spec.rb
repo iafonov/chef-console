@@ -9,6 +9,15 @@ describe Chef::Client do
     })
   end
 
+  context "when chef server returns error" do
+    it "raises an error" do
+      [401, 404, 500].each do |http_error_code|
+        stub_request(:get, "http://example.com/nodes/").to_return(:status => http_error_code)
+        lambda { client.get(:nodes) }.should raise_error(Chef::Client::ClientError)
+      end
+    end
+  end
+
   context "requesting resource" do
     before do
       stub_request(:get, "http://example.com/nodes/").to_return(:body => fixture_file("nodes.json"))

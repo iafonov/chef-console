@@ -1,6 +1,9 @@
 require 'mixlib/authentication/signedheaderauth'
 
 class Chef::Client
+  class ClientError < RuntimeError
+  end
+
   def initialize(configuration)
     @url         = configuration[:url]
     @client_name = configuration[:client_name]
@@ -10,7 +13,16 @@ class Chef::Client
   def get(resource, id = "", params = {})
     request_path = "/#{resource}/#{id}"
 
-    result = RestClient.get "#{@url}#{request_path}", sign_headers(:get, :path => request_path)
+    begin
+      result = RestClient.get "#{@url}#{request_path}", sign_headers(:get, :path => request_path)
+    rescue RestClient::Unauthorized => e
+      raise ClientError.new("Client runtime error. Something went wrong during authorization")
+    rescue RestClient::ResourceNotFound => e
+      raise ClientError.new("Client runtime error. Requested URL was not found by Chef server")
+    rescue RestClient::InternalServerError => e
+      raise ClientError.new("Client runtime error. Chef server error")
+    end
+
     JSON.parse(result)
   end
 
