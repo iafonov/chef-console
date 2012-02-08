@@ -30,6 +30,7 @@ private
 
   def sign_headers(http_method, request_params={})
     request_params.reverse_merge! :http_method => http_method, :body => "", :accept => "application/json"
+
     request_params[:timestamp] = Time.now.utc.iso8601
     request_params[:user_id]   = @client_name
 
