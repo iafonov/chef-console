@@ -7,6 +7,7 @@ gem 'unicorn'
 gem 'ruby-debug'
 gem 'rest-client'
 gem 'mixlib-authentication'
+gem 'rails-backbone'
 
 group :test do
   gem 'webmock', '~> 1.7.10'

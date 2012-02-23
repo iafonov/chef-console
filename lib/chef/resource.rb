@@ -8,11 +8,12 @@ class Chef::Resource
       collection << resouce_class.new(resouce_name, resouce_url)
     end
 
-    collection
+    collection.sort{ |a, b| a.name <=> b.name }
   end
 
   def initialize(name, url)
     @name      = name
+    @id        = name
     @fetch_url = url
   end
 
