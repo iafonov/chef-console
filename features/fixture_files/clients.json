@@ -1,0 +1,7 @@
+{
+  "test-client5":"http://groupinator.com:4000/clients/test-client5",
+  "test-client4":"http://groupinator.com:4000/clients/test-client4",
+  "test-client3":"http://groupinator.com:4000/clients/test-client3",
+  "test-client2":"http://groupinator.com:4000/clients/test-client2",
+  "test-client1":"http://groupinator.com:4000/clients/test-client1"
+}

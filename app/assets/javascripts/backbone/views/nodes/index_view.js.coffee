@@ -4,17 +4,17 @@ class ChefConsole.Views.Nodes.IndexView extends Backbone.View
   template: JST["backbone/templates/nodes/index"]
 
   initialize: () ->
-    @options.nodes.bind('reset', @addAll)
+    @options.collection.bind('reset', @addAll)
 
   addAll: () =>
-    @options.nodes.each(@addOne)
+    @options.collection.each(@addOne)
 
   addOne: (node) =>
     view = new ChefConsole.Views.Nodes.NodeView({model : node})
     @$("ul").append(view.render().el)
 
   render: =>
-    $(@el).html(@template(nodes: @options.nodes.toJSON() ))
+    $(@el).html(@template(nodes: @options.collection.toJSON() ))
     @addAll()
 
     return this

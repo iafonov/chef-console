@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require underscore
+//= require inflection
 //= require backbone
 //= require backbone_rails_sync
 //= require backbone_datalink

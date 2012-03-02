@@ -7,14 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<ul>
+		<li><a href="#nodes">Nodes</a>
+		<li><a href="#clients">Clients</a>
+	</ul>
 
-<ul>
-	<li><a href="#nodes">Nodes</a>
-</ul>
-
-<div id="nodes"></div>
-
-<%= yield %>
-
+	<div id="active_content" class="active-content"></div>
 </body>
 </html>

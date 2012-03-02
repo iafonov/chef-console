@@ -10,7 +10,9 @@ gem 'mixlib-authentication'
 gem 'rails-backbone'
 
 group :test do
+  gem 'cucumber-rails', '~> 1.3.0'
   gem 'webmock', '~> 1.7.10'
+  gem 'selenium-webdriver'
 end
 
 group :test, :development do

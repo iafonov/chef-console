@@ -10,7 +10,7 @@ window.ChefConsole =
   Routers: {}
   Views: {}
   init: ->
-    new ChefConsole.Routers.NodesRouter()
+    new ChefConsole.Routers.ResourcesRouter()
     Backbone.history.start()
 
 $(document).ready ->

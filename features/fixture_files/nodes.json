@@ -1,0 +1,7 @@
+{
+  "test-shard5":"http://groupinator.com:4000/nodes/test-shard5",
+  "test-shard4":"http://groupinator.com:4000/nodes/test-shard4",
+  "test-shard3":"http://groupinator.com:4000/nodes/test-shard3",
+  "test-shard2":"http://groupinator.com:4000/nodes/test-shard2",
+  "test-shard1":"http://groupinator.com:4000/nodes/test-shard1"
+}
