@@ -1,5 +1,7 @@
 ChefConsole::Application.routes.draw do
-  resources :nodes
+  resources :nodes do
+    resource :attributes
+  end
   resources :clients
 
   root :to => "application#index"

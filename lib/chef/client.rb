@@ -23,7 +23,12 @@ class Chef::Client
       raise ClientError.new("Client runtime error. Chef server error")
     end
 
+    JSON.create_id = nil
     JSON.parse(result)
+  end
+
+  def fetch(url)
+    result = RestClient.get url, sign_headers(:get, :path => "/nodes/ci")
   end
 
 private

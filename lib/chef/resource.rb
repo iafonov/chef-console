@@ -11,10 +11,22 @@ class Chef::Resource
     collection.sort{ |a, b| a.name <=> b.name }
   end
 
+  def self.fetch(name)
+    client.get(resouce_path, name)
+  end
+
+  def self.find(resource_id)
+    all.select{ |resource| resource.name == resource_id }.first
+  end
+
   def initialize(name, url)
     @name      = name
     @id        = name
     @fetch_url = url
+  end
+
+  def fetch
+    self.class.fetch(name)
   end
 
 private
